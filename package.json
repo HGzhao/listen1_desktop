@@ -1,6 +1,6 @@
 {
   "name": "Listen1",
-  "version": "1.8.0",
+  "version": "2.5.0",
   "description": "One for all free music in China",
   "main": "app/main.js",
   "scripts": {
@@ -9,12 +9,12 @@
     "dev": "NODE_ENV='development' npm run start",
     "dist:mac": "CSC_IDENTITY_AUTO_DISCOVERY=false DEBUG=electron-builder electron-builder --platform darwin",
     "dist": "electron-builder .",
-    "dist:linux": "electron-builder --linux --ia32 --x64",
-    "dist:linux32": "electron-builder --linux --ia32",
-    "dist:linux64": "electron-builder --linux --x64",
-    "dist:win": "electron-builder --win --ia32 --x64",
-    "dist:win32": "electron-builder --win --ia32",
-    "dist:win64": "electron-builder --win --x64"
+    "dist:linux": "./node_modules/.bin/electron-builder --linux --ia32 --x64",
+    "dist:linux32": "./node_modules/.bin/electron-builder --linux --ia32",
+    "dist:linux64": "./node_modules/.bin/electron-builder --linux --x64",
+    "dist:win": "./node_modules/.bin/electron-builder --win --ia32 --x64",
+    "dist:win32": "./node_modules/.bin/electron-builder --win --ia32",
+    "dist:win64": "./node_modules/.bin/electron-builder --win --x64"
   },
   "repository": {
     "type": "git",
@@ -33,8 +33,8 @@
   "build": {
     "appId": "com.listen1.listen1",
     "productName": "Listen1",
-    "asar": false,
-    "artifactName": "${name}_${version}_${os}${arch}.${ext}",
+    "asar": true,
+    "artifactName": "${name}_${version}_${os}_${arch}.${ext}",
     "dmg": {
       "title": "Listen 1",
       "icon": "build/disk.icns",
@@ -76,8 +76,8 @@
     }
   },
   "devDependencies": {
-    "electron": "^1.8.1",
-    "electron-builder": "^19.45.5"
+    "electron": "^4.0.6",
+    "electron-builder": "^20.39.0"
   },
   "dependencies": {
     "electron-debug": "^1.5.0"
